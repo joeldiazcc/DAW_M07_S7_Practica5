@@ -4,7 +4,8 @@ include 'ddbb.php';
 // Borrar proucte de la taula
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $pdo->query("DELETE FROM product WHERE ID = $id"); // Borrar
+    $sql_delete = $connection -> prepare("DELETE FROM product WHERE ID = "?); // Borrar
+    $delete = $sql_delete->execute([$id]);
 }
 echo 'Deleted ', $id;
 ?>
