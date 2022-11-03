@@ -15,6 +15,9 @@ if (isset($_POST['add'])) {
     $query = "INSERT INTO PRODUCT ('name', 'description', 'price') VALUES ('$nom','$descripcio',$preu)";
     //Connexió a la bbdd per executar la query
     $pdo_query = pdo_connection($connection, $query);
+
+    $q_sold= $query('q_sold');
+
 }
 ?>
 <!-- Nos devolvera al index.php, que contiene el html-->
