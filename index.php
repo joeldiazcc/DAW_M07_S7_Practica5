@@ -1,8 +1,21 @@
 <?php 
     // Conectar la Data Base
-    include 'ddbb.php';
-    $sql = "SELECT * FROM PRODUCT";
+    include 'ddbb.php'; 
+
+    try {
+        //Connexió a la BBDD
+        $myCon = new PDO('mysql:host=localhost; dbname=ddbb', 'root', '');
+        //Creem la consulta sql
+        $sql ="SELECT * FROM ddbb";
+     
+     
+     } catch (PDOException $e) {
+        echo "error de connexió: " . $e->getMessage() . "<br/>";
+        die();
+     }
+
 ?>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
