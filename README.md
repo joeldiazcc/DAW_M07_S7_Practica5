@@ -1,1 +1,17 @@
-# DAW_M07_S7_Practica5
+# [S7] - PRÀCTICA 5 - PHP + PDO
+
+Practica para aprender el uso de PMA, phpMyAdmin, mediante el uso de php y conectarlo a la base de datos por PDO. 
+Material o herramientas a usar: 
+-XAMPP.
+-IDE de PHP, en nuestro caso PhpStorm.
+
+
+## Repository Authors✒️
+
+-   Joel Felipe Díaz Carissimi - [joeldiazcc](https://github.com/joeldiazcc)
+
+-   Luis Andres Castillo Ensinas - [lcastienc](https://github.com/lcastienc)
+
+-   Ivan Nikola Petrov Perchev - [lcastienc](https://github.com/ipetrov20)
+
+
