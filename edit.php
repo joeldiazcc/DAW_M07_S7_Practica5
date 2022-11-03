@@ -15,6 +15,7 @@ if (isset($_GET['id'])) {
     $descripcio = $query['description'];
     //Query per modificar el preu
     $preu = $query['price'];
+    $q_sold = query('q_sold');
 
 }
 
@@ -24,5 +25,7 @@ if (isset($_GET['id'])) {
     <p>Name: <input type="text" name="name" value=<?php $nom ?>></p>
     <p>Description: <input type="text" name="description" value=<?php $descripcio ?>></p>
     <p>Price: <input type="number" name="price" value=<?php $preu ?>/></p>
+    <p>Price: <input type="number" name="q_sold" value=<?php $q_sold ?>/></p>
+
     <p><input type="submit"/></p>
 </form>
