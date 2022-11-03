@@ -8,9 +8,8 @@
         //Creem la consulta sql
         $sql = $myCon->query("SELECT * FROM ddbb");
         $productos = $sql->fetchAll(PDO::FETCH_OBJ); 
-
-
-     
+        //Para que acepte caracteres que no se encuentran en el alfabeto inglés (ñ, tíldes, etc. )
+        array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
      
      } catch (PDOException $e) {
         echo "error de connexió: " . $e->getMessage() . "<br/>";
@@ -35,10 +34,11 @@
                 <th scope="col">Name</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
             </tr>
         </thead>
         <tbody>
-        <!-- Ir añadiendo los productos en la tabla -->
+        <!-- mostramos los productos de  -->
         <?php foreach($productos as $valor){ ?> 
             <tr>
                 <td><?php echo $contador++?></td>
@@ -50,7 +50,7 @@
                 <td><a class="btn btn-outline-danger" href="delete.php?id=<?php echo $product['id']; ?>">Delete</a></td>
             </tr>
         <?php } ?> 
-         
+
         <? //php } mysqli_free_result($resultado); ?>
         <div><a class="btn btn-success" href="form_add.php">Añadir</a></div>
     </table>
