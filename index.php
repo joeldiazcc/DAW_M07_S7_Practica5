@@ -1,8 +1,24 @@
 <?php 
     // Conectar la Data Base
-    include 'ddbb.php';
-    $sql = "SELECT * FROM PRODUCT";
+    include 'ddbb.php'; 
+
+    try {
+        //Connexió a la BBDD
+        $myCon = new PDO('mysql:host=localhost; dbname=ddbb', 'root', '');
+        //Creem la consulta sql
+        $sql = $myCon->query("SELECT * FROM ddbb");
+        $productos = $sql->fetchAll(PDO::FETCH_OBJ); 
+
+
+     
+     
+     } catch (PDOException $e) {
+        echo "error de connexió: " . $e->getMessage() . "<br/>";
+        die();
+     }
+
 ?>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -23,19 +39,19 @@
         </thead>
         <tbody>
         <!-- Ir añadiendo los productos en la tabla -->
-        <?php $resultado = mysqli_query($connection, $sql);
-        $contador = 1;
-        while($product=mysqli_fetch_assoc($resultado)) { ?>
-
+        <?php foreach($productos as $valor){ ?> 
             <tr>
                 <td><?php echo $contador++?></td>
-                <td><?php echo $product['name']; ?></td>
-                <td><?php echo $product['description']; ?></td>
-                <td><?php echo $product['price']; ?></td>
+                <td><?php echo $valor->name; ?></td>
+                <td><?php echo $valor->description; ?></td>
+                <td><?php echo $valor->price; ?></td>
+                <td><?php echo $valor->q_sold; ?></td>
                 <td><a class="btn btn-outline-primary" href="edit.php?id=<?php echo $product['id']; ?>">Edit</a></td>
                 <td><a class="btn btn-outline-danger" href="delete.php?id=<?php echo $product['id']; ?>">Delete</a></td>
             </tr>
-        <?php } mysqli_free_result($resultado); ?>
+        <?php } ?> 
+         
+        <? //php } mysqli_free_result($resultado); ?>
         <div><a class="btn btn-success" href="form_add.php">Añadir</a></div>
     </table>
 </body>
