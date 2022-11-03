@@ -11,5 +11,4 @@ include 'index.php';
     $sql_insert = $myCon->prepare("INSERT INTO ddbb(name, description, price, q_sold) VALUES(?,?,?,?);");
     $insert = $sql_insert->execute([$name,$description,$price,$quantity]);
 
-    ?>
-
+?>
